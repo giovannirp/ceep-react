@@ -2,29 +2,65 @@ import React, { Component } from "react";
 import "./formulario.css"
 
 class FormularioCadastro extends Component {
-    constructor() {
+    constructor(props) {
         super();
+        this.state = {
+            titulo: ''
+        }
         this.titulo = "";
+        this.texto = "";
+        this.telefone = "";
+        this.limpar = this.limpar.bind(this)
     }
 
-    handleMudancaTitulo(evento) {
+    _handleMudancaTitulo(evento) {
+        evento.stopPropagation();
         this.titulo = evento.target.value;
-        console.log(this.titulo);
+    }
+
+    _handleMudaTelefone(evento) {
+        evento.stopPropagation();
+        this.telefone = evento.target.value;
+    }
+
+    _handleMudancaTexto(evento) {
+        evento.stopPropagation();
+        this.texto = evento.target.value;
+    }
+
+    _criarNota(evento) {
+        evento.preventDefault();
+        evento.stopPropagation();
+        this.props.criarNota(this.titulo, this.telefone, this.texto);
+        this.limpar();
+    }
+
+    limpar() {
     }
 
     render() {
         return (
-            <form className='form-cadastro'>
+            <form className='form-cadastro'
+                onSubmit={this._criarNota.bind(this)}
+            >
                 <input
                     type="text"
+                    id="inputTitulo"
                     placeholder="Titulo"
                     className="form-cadastro_input"
-                    onChange={this.handleMudancaTitulo.bind(this)}
+                    onChange={this._handleMudancaTitulo.bind(this)}
+                />
+                <input 
+                    type="text"
+                    placeholder="Telefone"
+                    className="form-cadastro_input"
+                    onChange={this._handleMudaTelefone.bind(this)}
                 />
                 <textarea
                     rows={15}
                     placeholder="Escreva sua nota"
                     className="form-cadastro_input"
+                    onChange={this._handleMudancaTexto.bind(this)}
                 />
                 <button className="form-cadastro_input form-cadastro_submit">
                     Criar Nota
