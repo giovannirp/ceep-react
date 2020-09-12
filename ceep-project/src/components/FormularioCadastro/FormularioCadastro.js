@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import ButtonDefault  from "../Button/ButtonDefault"
 import "./formulario.css"
 
 class FormularioCadastro extends Component {
@@ -35,9 +36,6 @@ class FormularioCadastro extends Component {
         this.limpar();
     }
 
-    limpar() {
-    }
-
     render() {
         return (
             <form className='form-cadastro'
@@ -62,9 +60,7 @@ class FormularioCadastro extends Component {
                     className="form-cadastro_input"
                     onChange={this._handleMudancaTexto.bind(this)}
                 />
-                <button className="form-cadastro_input form-cadastro_submit">
-                    Criar Nota
-            </button>
+                <ButtonDefault label="Criar nota Nova" css="form-cadastro_input form-cadastro_submit" />
             </form>
         )
     }
