@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListaNotas from './components/ListaNotas';
 import FormularioCadastro from './components/FormularioCadastro'
+import ListaDeCategorias from './components/ListaDeCategorias'
 import "./assets/App.css"
 import "./assets/index.css"
 
@@ -33,9 +34,13 @@ class App extends Component {
         return(
             <section className='conteudo'>
                 <FormularioCadastro criarNota={this.criarNota.bind(this)} />
-                <ListaNotas
-                    apagarNota={this.deletarNota.bind(this)}
-                    notas={this.state.notas} />
+                <main className="conteudo-principal">
+                    <ListaDeCategorias />
+                    <ListaNotas
+                        apagarNota={this.deletarNota.bind(this)}
+                        notas={this.state.notas} />
+                </main>
+
             </section>
         );
     }

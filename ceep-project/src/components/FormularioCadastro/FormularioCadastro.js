@@ -11,7 +11,6 @@ class FormularioCadastro extends Component {
         this.titulo = "";
         this.texto = "";
         this.telefone = "";
-        this.limpar = this.limpar.bind(this)
     }
 
     _handleMudancaTitulo(evento) {
