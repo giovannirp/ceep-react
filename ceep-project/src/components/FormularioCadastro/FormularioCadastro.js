@@ -32,7 +32,6 @@ class FormularioCadastro extends Component {
         evento.preventDefault();
         evento.stopPropagation();
         this.props.criarNota(this.titulo, this.telefone, this.texto);
-        this.limpar();
     }
 
     render() {
