@@ -14,7 +14,9 @@ class ListaNotas extends Component {
                                 apagarNota={this.props.apagarNota}
                                 titulo={nota.titulo} 
                                 telefone={nota.telefone} 
-                                texto={nota.texto} />
+                                texto={nota.texto}
+                                categoria={nota.categoria}
+                            />
                         </li>
                     );
                 })}
