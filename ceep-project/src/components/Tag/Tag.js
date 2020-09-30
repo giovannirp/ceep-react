@@ -1,14 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 
 class Tag extends Component {
     render() {
-        console.log(this.props)
-        
         return(
-            <>
+            <Fragment>
                 <li className={this.props.css}>{this.props.label}</li>
-            </>
-        );
+            </Fragment>
+        )
     }
 }
 

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import Tag from "../Tag/Tag";
+
 import "./estilo.css";
 class ListaDeCategorias extends Component {
-
   constructor() {
     super();
     this.state = {categorias:[]}
@@ -13,7 +14,7 @@ class ListaDeCategorias extends Component {
   }
 
   componentWillUnmount() {
-    this.props.categorias.desincrever(this._novasCategorias);
+    this.props.categorias.desinscrever(this._novasCategorias);
   }
 
   _novasCategorias(categorias) {
@@ -22,7 +23,7 @@ class ListaDeCategorias extends Component {
 
 
   _handleEventoInput(e) {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       let valorCategoria = e.target.value;
       this.props.adicionarCategoria(valorCategoria);
     }
@@ -33,9 +34,7 @@ class ListaDeCategorias extends Component {
         <ul className="lista-categorias_lista">
           {this.state.categorias.map((categoria, index) => {
             return (
-              <li key={index} className="lista-categorias_item">
-                {categoria}
-              </li>
+               <Tag key={index} label={categoria} css="lista-categorias_item" />
             );
           })}
         </ul>

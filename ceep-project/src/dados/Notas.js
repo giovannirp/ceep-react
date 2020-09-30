@@ -19,7 +19,7 @@ export default class ArrayDeNotas{
         this._inscritos.push(func);
     }
 
-    desincrever(func) {
+    desinscrever(func) {
         this._inscritos = this._inscritos.filter(f => f !== func)
     }
 

@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import "./estilo.css";
+import ButtonDefault from "../Button/ButtonDefault";
+
 class FormularioCadastro extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +18,7 @@ class FormularioCadastro extends Component {
   }
 
   componentWillUnmount() {
-    this.props.categorias.desincrever(this._novasCategorias);
+    this.props.categorias.desinscrever(this._novasCategorias);
   }
 
   _novasCategorias(categorias) {
@@ -27,6 +29,7 @@ class FormularioCadastro extends Component {
     evento.stopPropagation();
     this.categoria = evento.target.value;
   }
+
   _handleMudancaTitulo(evento) {
     evento.stopPropagation();
     this.titulo = evento.target.value;
@@ -68,9 +71,7 @@ class FormularioCadastro extends Component {
           className="form-cadastro_input"
           onChange={this._handleMudancaTexto.bind(this)}
         />
-        <button className="form-cadastro_input form-cadastro_submit">
-          Criar Nota
-        </button>
+        <ButtonDefault css="form-cadastro_input form-cadastro_submit" label="Criar Nota" />
       </form>
     );
   }

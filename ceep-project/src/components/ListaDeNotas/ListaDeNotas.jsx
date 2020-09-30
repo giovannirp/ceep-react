@@ -14,7 +14,7 @@ class ListaDeNotas extends Component {
   }
 
   componentWillUnmount() {
-    this.props.notas.desincrever(this._novasNotas);
+    this.props.notas.desinscrever(this._novasNotas);
   }
 
   _novasNotas(notas) {

@@ -6,12 +6,16 @@ import "./assets/App.css";
 import "./assets/index.css";
 import Categorias from "./dados/Categorias";
 import ArrayDeNotas from "./dados/Notas";
+import ButtonDefault from "./components/Button/ButtonDefault";
 class App extends Component {
   constructor() {
     super();
     this.categorias = new Categorias();
     this.notas = new ArrayDeNotas();
-    
+  }
+
+  changeColor = () => {
+    this.setState({color: "blue" })
   }
 
   render() {
@@ -36,5 +40,4 @@ class App extends Component {
   }
 }
 
-//new ListaDeNotas({notas:this.notas})
 export default App;
